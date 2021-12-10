@@ -23,6 +23,7 @@ urlpatterns = [
     path('hello-world/',localviews.hello_world),
     path('sorted/',localviews.sorted ),
     path('say_hi/<str:name>/<int:age>',localviews.say_hi),
-    path('posts/',posts_viwes.list_posts)
+    path('posts/',posts_viwes.list_posts),
+    path('posts-ex/',posts_viwes.list_posts_ex)
 ]
 
