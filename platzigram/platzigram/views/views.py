@@ -8,7 +8,7 @@ def hello_world(request):
         ))
 
 
-def hello(request):
+def sorted(request):
     numbers=request.GET['numbers'].split(",")
     data = {
         'status':'ok',
@@ -18,3 +18,10 @@ def hello(request):
     return HttpResponse(json.dumps(data, indent=4),
     content_type='application/json'
     )
+
+def say_hi(resquest,name,age):
+    if age<12:
+        message='Sorry {}, you are not allowed here'.format(name)
+    else:
+        message='Hello. {}! Welcome to Platzigram'.format(name)
+    return HttpResponse(json.dumps(message),content_type='application/json')
