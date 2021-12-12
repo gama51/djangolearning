@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from platzigram.views import views as localviews
 from posts import views as posts_viwes
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +27,5 @@ urlpatterns = [
     path('say_hi/<str:name>/<int:age>',localviews.say_hi),
     path('posts/',posts_viwes.list_posts),
     path('posts-ex/',posts_viwes.list_posts_ex)
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
