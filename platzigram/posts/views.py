@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import datetime
 from django.shortcuts import render
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 posts = [
@@ -49,7 +49,7 @@ def list_posts(request):
         )
     return HttpResponse('<br>'.join(content))
 
-    
+@login_required    
 def list_posts_ex(request):
-   
-    return render(request, 'posts/feed.html',{'posts':posts})
+
+       return render(request, 'posts/feed.html',{'posts':posts}) 
