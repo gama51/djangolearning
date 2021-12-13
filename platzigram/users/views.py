@@ -1,3 +1,4 @@
+from django.db.models.fields import NullBooleanField
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -47,8 +48,8 @@ def signup_view(request):
 
     return render(request, 'users/signup.html')
 
-
-
+def update_profile(request):
+    return render(request,'users/update_profile.html')
 
 
 
