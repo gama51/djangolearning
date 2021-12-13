@@ -42,9 +42,9 @@ def list_posts(request):
     content=[]
     for post in posts:
         content.append("""
-          <p><strong>{name}</strong></p>
+          <p><strong>{title}</strong></p>
             <p><small>{user} - <i>{timestamp}</i></small></p>
-            <figure><img src="{picture}"/></figure>
+            <figure><img src="{photo}"/></figure>
         """.format(**post)
         )
     return HttpResponse('<br>'.join(content))
@@ -52,4 +52,4 @@ def list_posts(request):
     
 def list_posts_ex(request):
    
-    return render(request, 'feed.html',{'posts':posts})
+    return render(request, 'posts/feed.html',{'posts':posts})
