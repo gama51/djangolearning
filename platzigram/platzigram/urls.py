@@ -28,6 +28,7 @@ urlpatterns = [
     path('say_hi/<str:name>/<int:age>',localviews.say_hi,name="hi"),
     path('posts/',posts_viwes.list_posts,name="posts"),
     path('posts-ex/',posts_viwes.list_posts_ex,name="feed"),
-    path('users/login/',users_views.login_view, name='login')
+    path('users/login/',users_views.login_view, name='login'),
+    path('users/logout/',users_views.logout_view, name='logout'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
