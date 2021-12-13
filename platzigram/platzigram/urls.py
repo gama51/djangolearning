@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from posts.models import user
 from platzigram.views import views as localviews
 from posts import views as posts_viwes
 from django.conf import settings
@@ -30,5 +31,6 @@ urlpatterns = [
     path('posts-ex/',posts_viwes.list_posts_ex,name="feed"),
     path('users/login/',users_views.login_view, name='login'),
     path('users/logout/',users_views.logout_view, name='logout'),
+    path('users/signup/',users_views.signup_view, name='signup'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
