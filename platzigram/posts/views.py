@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from datetime import datetime
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from users.models import Profile
 # Create your views here.
 
 posts = [
@@ -51,5 +52,11 @@ def list_posts(request):
 
 @login_required    
 def list_posts_ex(request):
-
-       return render(request, 'posts/feed.html',{'posts':posts}) 
+       profile = request.user.profile
+       return render(
+           request=request, 
+           template_name='posts/feed.html',
+           context={
+               'posts':posts,
+               'profile':profile
+           }) 
